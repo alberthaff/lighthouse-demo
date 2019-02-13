@@ -1,0 +1,37 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+type Query {
+    actors: [Actor]! @paginate(type: "paginator" model: "App\\Models\\Actor")
+    actor(id: ID! @eq): Actor @find(model: "App\\Models\\Actor")
+
+    Movies: [Movie]! @paginate(type: "paginator" model: "App\\Models\\Movie")
+    movie(id: ID! @eq): Movie @find(model: "App\\Models\\Movie")
+}
+
+type Mutation {
+    addMovie(tmdb_id: Int!): Movie @create(model: "App\\Models\\Movie")
+}
+
+type Actor {
+    id: ID!
+    name: String!
+    #TODO Movies
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Movie {
+    id: ID!
+    title: String!
+    overview: String
+    tmdb_id: Int!
+    imdb_id: String
+    #status: TODO
+    runtime: Int
+    is_adult: Boolean
+    #TODO Actors
+    created_at: DateTime!
+    updated_at: DateTime!
+}

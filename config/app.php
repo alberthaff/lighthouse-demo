@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Tmdb\Laravel\TmdbServiceProvider::class,
+
 
         /*
          * Application Service Providers...

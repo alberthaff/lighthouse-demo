@@ -13,7 +13,7 @@
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "nuwave/lighthouse": "^2.6",
-        "php-tmdb/api": "^2.1"
+        "php-tmdb/laravel": "^1.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

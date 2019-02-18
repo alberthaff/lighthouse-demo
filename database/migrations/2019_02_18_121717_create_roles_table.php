@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActorsTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateActorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('actors', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->unsignedInteger('tmdb_id');
-            $table->string('profile')->nullable();
+            $table->unsignedInteger('actor_id');
+            $table->unsignedInteger('movie_id');
+            $table->string('character');
             $table->timestamps();
-
-            $table->unique('tmdb_id');
         });
+
+        // TODO foreign keys
     }
 
     /**
@@ -31,6 +31,6 @@ class CreateActorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actors');
+        Schema::dropIfExists('roles');
     }
 }

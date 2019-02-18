@@ -19,11 +19,13 @@ class CreateMoviesTable extends Migration
             $table->string('imdb_id')->nullable();
             $table->string('title');
             $table->string('status');
-            $table->unsignedInteger('runtime');
+            $table->unsignedInteger('runtime')->nullable();
             $table->text('overview');
-            $table->boolean('is_adult');
+            $table->string('poster')->nullable();
             $table->date('release_date');
             $table->timestamps();
+
+            $table->unique('tmdb_id');
         });
     }
 

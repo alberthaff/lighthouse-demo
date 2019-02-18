@@ -12,6 +12,19 @@ class Movie extends Model
         'title',
         'status',
         'release_date',
-        'overview'
+        'overview',
+        'runtime',
+        'poster'
     ];
+
+    public function roles() {
+        return $this->hasMany(Role::class);
+    }
+
+    public function getPosterAttribute() {
+        if(is_null($this->attributes["poster"])){
+            return null;
+        }
+        return config('tmdb.image_prefix').'w500'.$this->attributes["poster"];
+    }
 }

@@ -1,10 +1,10 @@
 # Demo GraphQL API for ngx-lighthouse
 
-This is a demo, that can be used while testing the [ngx-lighthouse](https://ngx-lighthouse.com) library.
+This is a demo, that can be used while testing the [ngx-buoy](https://ngx-buoy.com) library.
 
 # Methods
 
-Endpoint: [https://movies.ngx-lighthouse.com/graph](https://movies.ngx-lighthouse.com/graph)
+Endpoint: [https://demo.ngx-buoy.com/graph](https://demo.ngx-buoy.com/graph)
 
 ## Movies
 

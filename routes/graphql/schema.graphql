@@ -4,10 +4,10 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 type Query {
     actors: [Actor]! @paginate(type: "paginator" model: "App\\Models\\Actor")
-    actor(id: ID! @eq): Actor @find(model: "App\\Models\\Actor")
+    actor(id: Int! @eq): Actor @find(model: "App\\Models\\Actor")
 
     movies: [Movie]! @paginate(type: "paginator" model: "App\\Models\\Movie")
-    movie(id: ID! @eq): Movie @find(model: "App\\Models\\Movie")
+    movie(id: Int! @eq): Movie @find(model: "App\\Models\\Movie")
 }
 
 type Mutation {
@@ -15,7 +15,7 @@ type Mutation {
 }
 
 type Actor {
-    id: ID! @globalId
+    id: Int!
     name: String!
     profile: String
     roles: [Role] @hasMany(relation: "roles", type: "paginator")
@@ -24,7 +24,7 @@ type Actor {
 }
 
 type Movie {
-    id: ID! @globalId
+    id: Int!
     title: String!
     overview: String
     tmdb_id: Int!
@@ -40,7 +40,7 @@ type Movie {
 }
 
 type Role {
-    id: ID! @globalId
+    id: Int!
     actor: Actor! @hasOne
     movie: Movie! @hasOne
     character: String!

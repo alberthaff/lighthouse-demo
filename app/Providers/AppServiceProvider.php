@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Movie;
 use App\Observers\MovieObserver;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Movie::observe(MovieObserver::class);
+        // Fix MySQL migrate issues
+        Schema::defaultStringLength(191);
     }
 
     /**

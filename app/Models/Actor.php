@@ -15,4 +15,11 @@ class Actor extends Model
     public function roles() {
         return $this->hasMany(Role::class);
     }
+
+    public function getProfileAttribute() {
+        if(is_null($this->attributes["profile"])){
+            return null;
+        }
+        return config('tmdb.image_prefix').'w500'.$this->attributes["profile"];
+    }
 }

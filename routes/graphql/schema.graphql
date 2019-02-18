@@ -15,7 +15,7 @@ type Mutation {
 }
 
 type Actor {
-    id: ID!
+    id: ID! @globalId
     name: String!
     profile: String
     roles: [Role] @hasMany(relation: "roles", type: "paginator")
@@ -24,15 +24,15 @@ type Actor {
 }
 
 type Movie {
-    id: ID!
+    id: ID! @globalId
     title: String!
     overview: String
     tmdb_id: Int!
     imdb_id: String
-    #status: TODO
+    status: String
     runtime: Int
-    is_adult: Boolean
     poster: String
+    release_date: Date
     created_at: DateTime!
     updated_at: DateTime!
 
@@ -40,6 +40,7 @@ type Movie {
 }
 
 type Role {
+    id: ID! @globalId
     actor: Actor! @hasOne
     movie: Movie! @hasOne
     character: String!
